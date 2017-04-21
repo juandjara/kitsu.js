@@ -1,0 +1,39 @@
+{
+  "name": "kitsu.js",
+  "version": "1.0.0",
+  "description": "A NodeJS wrapper for interacting with the kitsu.io API",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Crawl",
+    "email": "icrawltogo@gmail.com"
+  },
+  "scripts": {
+    "test": "eslint . silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iCrawl/kitsu.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iCrawl/kitsu.js/issues"
+  },
+  "keywords": [
+    "kitsu",
+    "kitsu.io",
+    "anime",
+    "manga",
+    "lightnovel",
+    "LN"
+  ],
+  "homepage": "https://github.com/iCrawl/kitsu.js#readme",
+  "eslintConfig": {
+    "extends": "aqua"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "node-fetch": "^1.6.3"
+  }
+}
