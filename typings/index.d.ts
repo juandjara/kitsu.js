@@ -30,8 +30,8 @@ declare module 'kitsu.js' {
 		public showType: string;
 		public nsfw: string;
 
-		public get url(): string;
-		public get youtubeURL(): string;
+		public readonly url: string;
+		public readonly youtubeURL: string;
 	}
 
 	export class Manga {
@@ -63,7 +63,7 @@ declare module 'kitsu.js' {
 		public serialization: string;
 		public mangaType: string;
 
-		public get url(): string;
+		public readonly url: string;
 	}
 
 	export class Drama {
@@ -84,7 +84,7 @@ declare module 'kitsu.js' {
 		public coverImage: object;
 		public dramaType: string;
 
-		public get url(): string;
+		public readonly url: string;
 	}
 
 	export class User {
@@ -115,7 +115,7 @@ declare module 'kitsu.js' {
 		public avatar: object;
 		public coverImage: object;
 
-		public get url(): string;
+		public readonly url: string;
 	}
 
 	export class Kitsu {
@@ -128,10 +128,10 @@ declare module 'kitsu.js' {
 			}
 		};
 
-		searchAnime(search: string, offset: number): Promise<Anime[]>;
-		getAnime(id: string): Promise<Anime>;
-		searchManga(search: string, offset: number): Promise<Manga[]>;
-		getManga(id: string): Promise<Manga>;
-		getUser(id: string): Promise<User>;
+		public searchAnime(search: string, offset: number): Promise<Anime[]>;
+		public getAnime(id: string): Promise<Anime>;
+		public searchManga(search: string, offset: number): Promise<Manga[]>;
+		public getManga(id: string): Promise<Manga>;
+		public getUser(id: string): Promise<User>;
 	}
 }
