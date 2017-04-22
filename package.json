@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "A NodeJS wrapper for interacting with the kitsu.io API",
   "main": "index.js",
+  "typings": "./typings/index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Crawl",
@@ -32,9 +33,11 @@
     "node-fetch": "^1.6.3"
   },
   "devDependencies": {
+    "@types/node": "^7.0.13",
     "eslint": "^3.19.0",
     "eslint-config-aqua": "^1.1.0",
-    "jest": "^19.0.2"
+    "jest": "^19.0.2",
+    "typescript": "^2.2.2"
   },
   "eslintConfig": {
     "extends": "aqua"

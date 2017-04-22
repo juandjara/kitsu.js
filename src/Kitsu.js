@@ -7,10 +7,10 @@ const User = require('./User');
 
 class Kitsu {
 	constructor() {
-		this.userAgent = `kitsu.js, a npm module for the kitsu.io API. v${version} (https://github.com/iCrawl/kitsu.js)`;
-		this.options = {
+		this._userAgent = `kitsu.js, a npm module for the kitsu.io API. v${version} (https://github.com/iCrawl/kitsu.js)`;
+		this._options = {
 			headers: {
-				'User-Agent': this.userAgent,
+				'User-Agent': this._userAgent,
 				Accept: 'application/vnd.api+json',
 				'Content-Type': 'application/vnd.api+json'
 			}
@@ -20,7 +20,7 @@ class Kitsu {
 	searchAnime(search, offset = 0) {
 		return new Promise((resolve, reject) => {
 			const searchTerm = encodeURIComponent(search);
-			return fetch(`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}`, this.options)
+			return fetch(`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}`, this._options)
 				.then(res => res.json())
 				.then(json => resolve(json.data.map(moreData => new Anime(moreData))))
 				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
@@ -29,7 +29,7 @@ class Kitsu {
 
 	getAnime(id) {
 		return new Promise((resolve, reject) =>
-			fetch(`https://kitsu.io/api/edge/anime/${id}`, this.options)
+			fetch(`https://kitsu.io/api/edge/anime/${id}`, this._options)
 				.then(res => res.json())
 				.then(json => resolve(new Anime(json.data)))
 				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)))
@@ -39,7 +39,7 @@ class Kitsu {
 	searchManga(search, offset = 0) {
 		return new Promise((resolve, reject) => {
 			const searchTerm = encodeURIComponent(search);
-			return fetch(`https://kitsu.io/api/edge/manga?filter[text]="${searchTerm}"&page[offset]=${offset}`, this.options)
+			return fetch(`https://kitsu.io/api/edge/manga?filter[text]="${searchTerm}"&page[offset]=${offset}`, this._options)
 				.then(res => res.json())
 				.then(json => resolve(json.data.map(moreData => new Manga(moreData))))
 				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
@@ -48,7 +48,7 @@ class Kitsu {
 
 	getManga(id) {
 		return new Promise((resolve, reject) =>
-			fetch(`https://kitsu.io/api/edge/manga/${id}`, this.options)
+			fetch(`https://kitsu.io/api/edge/manga/${id}`, this._options)
 				.then(res => res.json())
 				.then(json => resolve(new Manga(json.data)))
 				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)))
@@ -57,7 +57,7 @@ class Kitsu {
 
 	getUser(id) {
 		return new Promise((resolve, reject) =>
-			fetch(`https://kitsu.io/api/edge/users/${id}`, this.options)
+			fetch(`https://kitsu.io/api/edge/users/${id}`, this._options)
 				.then(res => res.json())
 				.then(json => resolve(new User(json.data)))
 				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)))

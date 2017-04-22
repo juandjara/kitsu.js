@@ -4,10 +4,10 @@ class Drama {
 		this.slug = data.attributes.slug;
 		this.synopsis = data.attributes.synopsis;
 		this.titles = {
-			en: data.attributes.titles.en,
-			enJp: data.attributes.titles.en_jp,
-			canonicalTitle: data.attributes.canonical_title,
-			abbreviatedTitles: data.attributes.abbreviatedTitles
+			english: data.attributes.titles.en,
+			romaji: data.attributes.titles.en_jp,
+			canonical: data.attributes.canonical_title,
+			abbreviated: data.attributes.abbreviatedTitles
 		};
 		this.averageRating = data.attributes.averageRating;
 		this.ratingFrequencies = data.attributes.ratingFrequencies;
