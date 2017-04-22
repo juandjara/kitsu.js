@@ -9,7 +9,8 @@
     "email": "icrawltogo@gmail.com"
   },
   "scripts": {
-    "test": "eslint . silent"
+    "pretest": "eslint . silent",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,13 +28,18 @@
     "LN"
   ],
   "homepage": "https://github.com/iCrawl/kitsu.js#readme",
+  "dependencies": {
+    "node-fetch": "^1.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-aqua": "^1.1.0",
+    "jest": "^19.0.2"
+  },
   "eslintConfig": {
     "extends": "aqua"
   },
   "engines": {
     "node": ">=6"
-  },
-  "dependencies": {
-    "node-fetch": "^1.6.3"
   }
 }
