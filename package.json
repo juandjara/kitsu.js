@@ -1,6 +1,6 @@
 {
   "name": "kitsu.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A NodeJS wrapper for interacting with the kitsu.io API",
   "main": "index.js",
   "license": "MIT",
