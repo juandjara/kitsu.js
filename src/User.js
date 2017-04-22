@@ -24,8 +24,8 @@ class User {
 		this.likesReceivedCount = data.attributes.likesReceivedCount;
 		this.postsCount = data.attributes.postsCount;
 		this.ratingsCount = data.attributes.ratingsCount;
-		this.avatar = { original: data.attributes.avatar.original };
-		this.coverImage = { original: data.attributes.coverImage.original };
+		this.avatar = data.attributes.avatar;
+		this.coverImage = data.attributes.coverImage;
 	}
 
 	get url() {

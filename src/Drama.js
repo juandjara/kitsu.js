@@ -2,7 +2,7 @@ class Drama {
 	constructor(id, data) {
 		this.id = data.id;
 		this.slug = data.attributes.slug;
-		this.synposis = data.attributes.synposis;
+		this.synopsis = data.attributes.synopsis;
 		this.titles = {
 			en: data.attributes.titles.en,
 			enJp: data.attributes.titles.en_jp,
