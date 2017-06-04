@@ -17,10 +17,10 @@ class Kitsu {
 		};
 	}
 
-	searchAnime(search, offset = 0) {
+	searchAnime(search, offset = 0, sort) {
 		return new Promise((resolve, reject) => {
 			const searchTerm = encodeURIComponent(search);
-			return fetch(`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}`, this._options)
+			return fetch(`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}&sort=${sort}`, this._options)
 				.then(res => res.json())
 				.then(json => resolve(json.data.map(moreData => new Anime(moreData))))
 				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
