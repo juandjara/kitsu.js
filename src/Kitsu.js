@@ -21,7 +21,7 @@ class Kitsu {
 		return new Promise((resolve, reject) => {
 			const searchTerm = encodeURIComponent(search);
 			return fetch(
-				`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}&sort=${sort}`, 
+				`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}&sort=${sort}`,
 				this._options
 			)
 			.then(res => res.json())
@@ -39,13 +39,16 @@ class Kitsu {
 		);
 	}
 
-	searchManga(search, offset = 0) {
+	searchManga(search, offset = 0, sort) {
 		return new Promise((resolve, reject) => {
 			const searchTerm = encodeURIComponent(search);
-			return fetch(`https://kitsu.io/api/edge/manga?filter[text]="${searchTerm}"&page[offset]=${offset}`, this._options)
-				.then(res => res.json())
-				.then(json => resolve(json.data.map(moreData => new Manga(moreData))))
-				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
+			return fetch(
+				`https://kitsu.io/api/edge/manga?filter[text]="${searchTerm}"&page[offset]=${offset}&sort=${sort}`,
+				this._options
+			)
+			.then(res => res.json())
+			.then(json => resolve(json.data.map(moreData => new Manga(moreData))))
+			.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
 		});
 	}
 
