@@ -130,7 +130,7 @@ declare module 'kitsu.js' {
 
 		public searchAnime(search: string, offset: number, sort: string): Promise<Anime[]>;
 		public getAnime(id: string): Promise<Anime>;
-		public searchManga(search: string, offset: number): Promise<Manga[]>;
+		public searchManga(search: string, offset: number, sort: string): Promise<Manga[]>;
 		public getManga(id: string): Promise<Manga>;
 		public getUser(id: string): Promise<User>;
 	}
