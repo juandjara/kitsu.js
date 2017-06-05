@@ -23,10 +23,10 @@ class Kitsu {
 			return fetch(
 				`https://kitsu.io/api/edge/anime?filter[text]="${searchTerm}"&page[offset]=${offset}&sort=${sort}`, 
 				this._options
-				)
-				.then(res => res.json())
-				.then(json => resolve(json.data.map(moreData => new Anime(moreData))))
-				.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
+			)
+			.then(res => res.json())
+			.then(json => resolve(json.data.map(moreData => new Anime(moreData))))
+			.catch(err => reject(new Error(`Couldn't fetch the api: ${err}`)));
 		});
 	}
 
